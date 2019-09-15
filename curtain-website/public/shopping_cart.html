@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>购物车</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <script src="javascripts/jquery.js"></script>
+</head>
+<style>
+
+    .white_content {
+        display: none;
+        position: absolute;
+        top: 130%;
+        left:30%;
+        width: 30%;
+        height: 60%;
+        padding: 20px;
+        border: 2px solid #314775;
+        background-color: white;
+        z-index:2000;
+        overflow: auto;
+        opacity: 0.9;
+    }
+
+    ul li{
+
+        list-style:none
+    }
+    a{ text-decoration:none;}
+    body{
+        color:#6d8e95
+    }
+
+    .gwc
+    {
+        width:950px;
+        overflow:hidden;
+    }
+    .gwc_tb1
+    {
+        width:100%;
+        height:38px;
+        margin-top:20px;
+        overflow:hidden;
+    }
+    .gwc_tb2
+    {
+        width:100%;
+        margin-top:20px;
+        border:0.5px solid #6d8e95;
+        padding-top:20px;
+        padding-bottom:20px;
+    }
+    .tb2_td1
+    {
+        width:60px;
+        text-align:center;}
+    .tb2_td2
+    {
+        width:100px;
+        ext-align:center;
+    }
+    .tb2_td2 img
+    {
+        width:96px;
+        height:96px;
+        border:1.5px solid #ffffff;
+        text-decoration: none
+    }
+    .tb2_td3
+    {
+        width:170px;
+        padding-left:30px;
+        padding-right:18px;
+    }
+    .tb2_td3 a
+    {
+        font-size:14px;
+        line-height:22px;
+    }
+    .gwc_tb3 tr td
+    {
+        font-size:14px;
+    }
+</style>
+<body class="homepage">
+
+<div id="header">
+    <div class="inner" style="padding-top:0">
+
+        <header>
+            <h1><a href="#" id="logo">CURTAIN</a></h1>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">首页</a></li>
+                <li><a href="person.html">个人</a></li>
+                <li><a href="shopping_cart.html">购物车</a></li>
+                <li><a href="shopping.html">全部宝贝</a></li>
+                <li><a href="register.html">登录/注册</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div id="banner">
+    <h2>Shopping Cart</h2>
+</div>
+
+<div class="carousel"  >
+    <div class="gwc" style=" margin:auto;">
+        <table cellpadding="0" cellspacing="0" class="gwc_tb1">
+            <tr>
+                <td class="tb1_td3" style="color:#6d8e95; font-weight:bold;padding-left: 4em">商品</td>
+                <td class="tb1_td4" style="color:#6d8e95; font-weight:bold;">商品信息</td>
+                <td class="tb1_td6" style="color:#6d8e95; font-weight:bold;">单价</td>
+            </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" class="gwc_tb2">
+            <tr>
+                <td class="tb2_td1"><input type="checkbox" value="1" name="newslist" id="newslist-1" /></td>
+                <td class="tb2_td2"><a href="#"><img src="img/热情粉色.jpg"/></a></td>
+                <td class="tb2_td3">热情粉色</td>
+                <td class="tb1_td4" style="padding-left: 5em;width: 310px;">宽2.0*高2.7挂钩/打孔</td>
+                <td class="tb1_td6" style="color:#6d8e95;font-size:14px; font-weight:bold;">￥1600</td>
+            </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" class="gwc_tb2">
+            <tr>
+                <td class="tb2_td1"><input type="checkbox" value="1" name="newslist" id="newslist-2" /></td>
+                <td class="tb2_td2"><a href="#"><img src="img/可爱翠花.jpg"/></a></td>
+                <td class="tb2_td3">可爱翠花</td>
+                <td class="tb1_td4" style="padding-left: 5em;width: 310px;">宽2.0*高2.7挂钩/打孔</td>
+                <td class="tb1_td6" style="color:#6d8e95;font-size:14px; font-weight:bold;">￥1320</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<footer style="
+    margin-left: 440px;
+">
+    <a class="button" href = "JavaScript:void(0)" onclick = "openDialog()">结算</a>
+    <div id="light" class="white_content">
+        <table>
+            <a href = "javascript:void(0)" onclick = "closeDialog()"><img src="images/d2.png" style="position: relative;float:right;width:50px;height: 50px"></a>
+            <tr>
+                <h2>订单详情</h2>
+            </tr>
+            <tr>
+                <h4>商品：热情粉色</h4>
+                <h3>价格：￥1320</h3>
+                <h4> 宽2.0*高2.7挂钩/打孔</h4>
+                <td><a href="#"><img src="img/热情粉色.jpg"/></a></td>
+            <tr>
+                <td>收获地址：浙江省杭州市kzy有限公司</td>
+
+            </tr>
+            </tr>
+        </table>
+     <a class="button"href="shopping_cart.html">确认提交</a>
+    </div>
+    <a  href="shopping.html" class="button" style="margin-left:2em">返回</a>
+</footer>
+
+
+<div class="wrapper style1">
+    <section id="features" class="container special">
+        <header>
+            <h2>Welcome to contact us!</h2>
+            <span class="byline"></span>
+        </header>
+        <div class="row">
+            <article class="4u special">
+                <img src="images/pic07.jpg" alt="" />
+                <header>
+                    <h3>店铺地址</h3>
+                </header>
+                <p style=" padding-left: 2em;">
+                    天津市河北区海河东路大悲院前
+                    <br>
+                    天津窗帘城B1-29-33#
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic08.jpg" alt="" />
+                <header>
+                    <h3>转账方式</h3>
+                </header>
+                <p style=" padding-left: 0.9em;">
+                    交 通 银 行：6222601210001594698
+                    <br>
+                    农 业 银 行：6228480020077642013
+                </p>
+            </article>
+            <article class="4u special" >
+                <img src="images/pic09.jpg" alt="" />
+                <header>
+                    <h3>联系方式</h3>
+                </header>
+                <p style="    padding-left:4em;">
+                    电 话：022-26230188
+                    <br>
+                    手 机：13802052187
+                </p>
+            </article>
+        </div>
+    </section>
+</div>
+
+</body>
+<script type="text/javascript">
+    $(function()
+    {
+    })
+    function openDialog(){
+        document.getElementById('light').style.display='block';
+        document.getElementById('fade').style.display='block'
+    }
+    function closeDialog()
+    {
+        document.getElementById('light').style.display='none';
+        document.getElementById('fade').style.display='none'
+    }
+</script>
+</html>

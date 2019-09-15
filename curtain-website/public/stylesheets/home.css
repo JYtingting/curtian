@@ -1,0 +1,400 @@
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+#nav a
+{
+    transition: all 0.5s;
+}
+button
+{
+    display: inline-block;
+    background: -webkit-linear-gradient(right,#314775,#26a0da);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.65em 2em 0.65em 2em;
+    cursor: pointer;
+    outline: 0;
+    border-radius: 12px;
+    opacity: 0.8;
+    font-size: 10.6pt;
+    border:0;
+    position: absolute;
+    left:46.7em;
+    top:434px;
+}
+li
+{
+    float:left;
+    padding-left: 8em;
+    list-style-type:none;
+}
+body.paused *
+{
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+body
+{
+    background: #f1f5f5;
+    color: #5b5b5b;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+
+body,input,textarea,select
+{
+    font-size: 15pt;
+    line-height: 1.85em;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-weight: 400;
+    color: #483949;
+    line-height: 1.25em;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+{
+    color: inherit;
+    text-decoration: none;
+    border-bottom-color: transparent;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong
+{
+    font-weight: 600;
+}
+
+h2
+{
+    font-size: 2.85em;
+}
+
+h3
+{
+    font-size: 1.25em;
+}
+
+h4
+{
+    font-size: 1em;
+    margin: 0 0 0.25em 0;
+}
+
+strong, b
+{
+    font-weight: 400;
+    color: #483949;
+}
+
+em, i
+{
+    font-style: italic;
+}
+
+a
+{
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: #a6d0e4;
+    border-bottom-color: transparent;
+}
+
+sub
+{
+    position: relative;
+    top: 0.5em;
+    font-size: 0.8em;
+}
+
+sup
+{
+    position: relative;
+    top: -0.5em;
+    font-size: 0.8em;
+}
+
+blockquote
+{
+    border-left: solid 0.5em #ddd;
+    padding: 1em 0 1em 2em;
+    font-style: italic;
+}
+
+p, ul, ol, dl, table
+{
+    margin-bottom: 1em;
+}
+
+p
+{
+    text-align: justify;
+}
+
+br.clear
+{
+    clear: both;
+}
+
+header
+{
+    margin: 0 0 2em 0;
+}
+
+header .byline
+{
+    margin-bottom: 2em;
+}
+
+footer
+{
+    margin: 2.5em 0 2.5em 25em;
+}
+
+hr
+{
+    position: relative;
+    display: block;
+    border: 0;
+    top: 4.5em;
+    margin-bottom: 9em;
+    height: 6px;
+    border-top: solid 1px rgba(128,128,128,0.2);
+    border-bottom: solid 1px rgba(128,128,128,0.2);
+}
+
+hr:before,
+hr:after
+{
+    content: '';
+    position: absolute;
+    top: -8px;
+    display: block;
+    width: 1px;
+    height: 21px;
+    background: rgba(128,128,128,0.2);
+}
+/* Sections/Articles */
+.row article
+{
+    margin-bottom: 3em;
+    width:19em;
+    margin-top: 5em;
+    margin-left: 1.5em;
+}
+section,
+article
+{
+    margin-bottom: 3em;
+}
+
+section > :last-child,
+article > :last-child
+{
+    margin-bottom: 0;
+}
+
+section:last-child,
+article:last-child
+{
+    margin-bottom: 0;
+}
+
+.row > section,
+.row > article
+{
+    margin-bottom: 2em;
+    float:left;
+}
+
+section.special > header,
+section.special > footer,
+article.special > header,
+article.special > footer
+{
+    text-align: center;
+}
+/* Buttons */
+
+.button
+{
+    position: relative;
+    display: inline-block;
+    background: -webkit-linear-gradient(right,#314775,#26a0da);
+    color: #fff;
+    text-align: center;
+    border-radius: 0.5em;
+    text-decoration: none;
+    padding: 0.65em 3em 0.65em 3em;
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+}
+/*********************************************************************************/
+/* Wrapper                                                                       */
+/*********************************************************************************/
+
+.wrapper
+{
+    background: #fff;
+    margin: 0 0 2em 0;
+    padding: 3em 0 4em 0;
+}
+
+.wrapper.style1
+{
+}
+
+.wrapper.style2
+{
+    padding-top: 0;
+}
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+#header
+{
+
+    position: relative;
+    background-image: url('../images/header.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #fff;
+    text-align: center;
+    padding: 2.5em 0 2em 0;
+    cursor: default;
+    width:100%;
+}
+
+.homepage #header
+{
+    padding: 4em 0 4em 0;
+}
+
+.homepage #header .overlay
+{
+    content: '';
+    background: #1C0920;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1.0;
+}
+
+.homepage #header.ready .overlay
+{
+    opacity: 0;
+}
+
+#header .inner
+{
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 6em 0 0 0;
+}
+
+#header h1
+{
+    color: #fff;
+    line-height: 1em;
+    margin-bottom:1em;
+}
+
+.homepage #header h1
+{
+    font-size: 4em;
+}
+
+#header h1 a
+{
+    color: inherit;
+}
+
+
+
+#header .button
+{
+    border-radius: 100%;
+    width: 4.5em;
+    height: 4.5em;
+    line-height: 4.5em;
+    text-align: center;
+    font-size: 1.25em;
+    padding: 0;
+}
+/*********************************************************************************/
+/* Banner                                                                        */
+/*********************************************************************************/
+
+#banner
+{
+    background: #fff;
+    text-align: center;
+    padding: 4.5em 0 4.5em 0;
+}
+/*********************************************************************************/
+/* Carousel                                                                      */
+/*********************************************************************************/
+
+.carousel
+{
+    position: relative;
+    padding: 2em 0 2em 0;
+}
+
+.carousel .reel
+{
+    white-space: nowrap;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 2em 0 2em;
+}
+
+.carousel article
+{
+    display: inline-block;
+    width: 16em;
+    background: #fff;
+    text-align: center;
+    padding: 0 1em 2em 1em;
+    margin: 0 2em 0 0;
+    white-space: normal;
+    opacity: 1.0;
+}
+
+.carousel article.loading
+{
+    opacity: 0;
+}
+
+.carousel article .image
+{
+    position: relative;
+    left: -1em;
+    top: 0;
+    width: auto;
+    margin-right: -2em;
+    margin-bottom: 3em;
+}
+
+.carousel article p
+{
+    text-align: center;
+}
+
+

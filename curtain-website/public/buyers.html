@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>购物车</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <script src="javascripts/jquery.js"></script>
+</head>
+
+<body class="homepage">
+
+<div id="header">
+
+    <div class="inner" style="padding-top:0">
+
+        <header>
+            <h1><a href="#" id="logo">CURTAIN</a></h1>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">首页</a></li>
+                <li><a href="person.html">个人</a></li>
+                <li><a href="shopping_cart.html">购物车</a></li>
+                <li><a href="shopping.html">全部宝贝</a></li>
+                <li><a href="register.html">登录/注册</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div id="banner">
+    <h2>Personal Center</h2>
+</div>
+<div class="carousel"  >
+    <div class="row">
+        <div class="8u skel-cell-mainContent" id="content">
+            <article id="main">
+                <header>
+                    <h2>Historical</h2>
+                    <span class="byline">最近加入购物车</span>
+                </header>
+                <img src="img/日系简约1.png" alt="" style="width:150px;height:200px">
+                    <header>
+                        <h2>integral</h2>
+                        <span class="byline">3466个积分</span>
+                    </header>
+                <img src="images/积分.png" alt="" style="width:100px;height:100px">
+                <header>
+                    <h2>order</h2>
+                </header>
+                <span class="byline">正在运输.....</span>
+            </article>
+            <div class="touxiang" style="float:right;margin-right: 200px;">
+                <div class="touxiangs"  align="center">
+                    <img src="images/pig.jpg" style="width:200px;height: 200px;">
+                </div>
+                <div  >
+                    姓名:<span>猪猪</span><br/><br>
+                    性别:<span id="修改性别" ondblclick="edit(this)">男</span><br/><br>
+                    生日:<span id="修改生日" ondblclick="edit(this)">1997.11.30</span><br/><br>
+                    邮箱:<span id="修改邮箱" ondblclick="edit(this)">1037027555@qq.com</span><br/><br>
+                    联系方式:<span id="修改联系方式" ondblclick="edit(this)">15157142843</span><br/><br>
+                    收货地址:<span id="修改地址" ondblclick="edit(this)" >浙江省杭州市萧山区义桥镇御景蓝湾</span><br/>
+                </div>
+                <div>
+                    <footer  style="margin-left: 0">
+                        <a  href="register.html" class="button">退出登录</a>
+                    </footer>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+
+<div class="wrapper style1">
+    <section id="features" class="container special">
+        <header>
+            <h2>Welcome to contact us!</h2>
+            <span class="byline"></span>
+        </header>
+        <div class="row">
+            <article class="4u special">
+                <img src="images/pic07.jpg" alt="" />
+                <header>
+                    <h3>店铺地址</h3>
+                </header>
+                <p style=" padding-left: 2em;">
+                    天津市河北区海河东路大悲院前
+                    <br>
+                    天津窗帘城B1-29-33#
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic08.jpg" alt="" />
+                <header>
+                    <h3>转账方式</h3>
+                </header>
+                <p style=" padding-left: 0.9em;">
+                    交 通 银 行：6222601210001594698
+                    <br>
+                    农 业 银 行：6228480020077642013
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic09.jpg" alt="" />
+                <header>
+                    <h3>联系方式</h3>
+                </header>
+                <p style="    padding-left:4em;">
+                    电 话：022-26230188
+                    <br>
+                    手 机：13802052187
+                </p>
+            </article>
+        </div>
+    </section>
+</div>
+</body>
+<script type="text/javascript">
+    function edit(element)
+    {
+        var oldhtml = element.innerHTML;//获得元素之前的内容
+        var newobj = document.createElement('input');//创建一个input元素
+        newobj.type = 'text';//为newobj元素添加类型
+        newobj.value=oldhtml;
+        element.innerHTML = '';　　 //设置元素内容为空
+        element.appendChild(newobj);//添加子元素
+        newobj.focus();
+        //获得焦点
+        //设置newobj失去焦点的事件
+        newobj.onblur = function()
+        {
+            //下面应该判断是否做了修改并使用ajax代码请求服务端将id与修改后的数据提交
+            alert(element.id);
+            //当触发时判断newobj的值是否为空，为空则不修改，并返回oldhtml
+            element.innerHTML = this.value ? this.value : oldhtml;
+        }
+    }
+</script>
+</html>

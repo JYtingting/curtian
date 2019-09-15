@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>首页</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <script src="javascripts/jquery.js"></script>
+</head>
+<body class="homepage">
+<!-- Header -->
+<div id="header">
+    <!-- Inner -->
+    <div class="inner">
+        <!-- Nav -->
+        <header>
+            <h1><a href="#" id="logo">CURTAIN</a></h1>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">首页</a></li>
+                <li><a href="#">个人</a></li>
+                <li><a href="shopping_cart.html">购物车</a></li>
+                <li><a href="shopping.html">全部宝贝</a></li>
+                <li><a href="register.html">登录/注册</a></li>
+            </ul>
+        </nav>
+        <div style="padding-top: 100px;width: 300px;height: 50px;padding-left: 474px;">
+            <input type="text" id="content" style=" border: 1px solid #ffffff;border-radius: 12px;
+    background: transparent;
+    opacity: 0.8;
+        top:2em;
+        right: 0;
+        ">
+            <a onClick="toggle('shopping_column')">
+                <button id="search">搜索</button>
+            </a>
+            <div id="user_list" style="background: #ffffff ;opacity: 0.9">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Banner -->
+<div id="banner">
+    <h2>Recommendations for some <strong>goods</strong>.</h2>
+</div>
+<!-- Carousel -->
+<div class="carousel">
+    <div class="reel">
+        <article >
+            <img src="images/热情粉色.jpg" alt="" style="
+    width: 320px;
+    height: 320px;
+      padding-top: 18px
+" />
+            <header>
+                <h3><a href="thing.html">洋溢热情的粉色窗帘</a></h3>
+            </header>
+            <p>价值人名币1600元 值得暖色系家庭拥有</p>
+        </article>
+
+        <article >
+            <img src="img/帆船孩童.jpg" alt="" style="
+    width: 320px;
+    height: 320px;
+      padding-top: 18px
+" />
+            <header>
+                <h3><a href="#">可爱童趣帆船窗帘</a></h3>
+            </header>
+            <p>如果你的家里有可爱的宝贝就一定要拥有它</p>
+        </article>
+
+        <article >
+            <img src="img/日系简约.jpg" alt="" style="
+    width: 320px;
+    height: 320px;
+      padding-top: 18px
+" />
+            <header>
+                <h3><a href="#">日系简约风格窗帘</a></h3>
+            </header>
+            <p> 一套价值2332元的窗帘让你的家装典雅朴素</p>
+        </article>
+    </div>
+</div>
+<footer>
+    <a href="shopping.html" class="button">查看更多宝贝</a>
+</footer>
+
+<!-- Main -->
+<div class="wrapper style2">
+
+    <article id="main" class="container special">
+        <header style="padding-top:3em;">
+            <h2>The purpose of our shop</h2>
+        </header>
+        <p style="
+    width: 58em;
+    padding-left: 2em;
+">
+            我们不相信会有完美无缺的家，
+            但是我们相信家能够完美彰显房子主人的风格特点。
+            在家里，一切风格和功能都能按照你的喜好和需求设计，
+            而且无需花费太多，即可为你带来舒适的感觉。
+            这就是我们在本店存在的原因所在，
+            让你生活的空间因为窗帘的美观而显得更加的舒适，让家成为一个你愿意归来的港湾。
+        </p>
+    </article>
+
+</div>
+
+<!-- Features -->
+<div class="wrapper style1">
+    <section id="features" class="container special">
+        <header>
+            <h2>Welcome to contact us!</h2>
+            <span class="byline"></span>
+        </header>
+        <div class="row">
+            <article class="4u special">
+                <img src="images/pic07.jpg" alt="" />
+                <header>
+                    <h3>店铺地址</h3>
+                </header>
+                <p style=" padding-left: 2em;">
+                    天津市河北区海河东路大悲院前
+                    <br>
+                    天津窗帘城B1-29-33#
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic08.jpg" alt="" />
+                <header>
+                    <h3>转账方式</h3>
+                </header>
+                <p style=" padding-left: 0.9em;">
+                    交 通 银 行：6222601210001594698
+                    <br>
+                    农 业 银 行：6228480020077642013
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic09.jpg" alt="" />
+                <header>
+                    <h3>联系方式</h3>
+                </header>
+                <p style="    padding-left:4em;">
+                    电 话：022-26230188
+                    <br>
+                    手 机：13802052187
+                </p>
+            </article>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
+<script>
+    $(function () {
+
+        //搜索用户
+        $('#search').click(function() {
+            $("#user_list").empty();
+            var searchUrl='search?content='+$('#content').val();
+            $.get(
+                searchUrl, //对应node端routes\search.js处理逻辑
+                '', // 可选
+                function (data)
+                {
+                    //将服务器端的JSON字符串转化成JSON对象
+                    var userList=JSON.parse(data);
+                    //清空区域
+                    $("#user_list").empty();
+                    //动态创建table元素
+                    var table = $("<table>");
+                    table.appendTo($("#user_list"));
+                    //遍历所有用户信息
+                    for (var i = 0; i < userList.length; i++) {
+                        //增加表格一行
+                        var tr = $("<tr></tr>");
+                        //将行添加到表格中
+                        tr.appendTo(table);
+                        //新建一个表格单元格，显示用户名
+                        var
+                            //将单元格信息添加到行中
+                            td = $("<td> <a href="+ userList[i].picture+"><img height='180' width='160' src=" + userList[i].picture_url + "></a></td>");
+                        td.appendTo(tr);
+                    }
+                    //写入表格结束标签
+                    $("#user_list").append("</table>");
+                });
+        });
+    })
+</script>

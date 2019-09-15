@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>全部宝贝</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/select.css"/>
+    <script src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="js/script1.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+</head>
+<style>
+    .shopping_pictures {
+        border-radius: 6px 6px 3px 3px;
+        box-sizing: border-box;
+        float: left;
+        margin: 0 10px 10px 0;
+        min-height: 200px;
+        position: relative;
+        text-align: left;
+        width: 180px;
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(25,25,25,0.2);
+        cursor: pointer;
+    }
+    .shangpin1 ,.shangpin2 ,.shangpin3,.shangpin4,.shangpin5,.shangpin6,.shangpin7
+    {
+        border-radius: 6px 6px 3px 3px;
+        box-sizing: border-box;
+        color: steelblue;
+        margin: 0 20px 20px 0;
+        min-height: 200px;
+        position: absolute;
+        text-align: left;
+        width: 180px;
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(25,25,25,0.2);
+        cursor: pointer;
+    }
+    .shangpin1 ,.shangpin2 ,.shangpin3,.shangpin4,.shangpin5,.shangpin6,.shangpin7
+    {
+        margin-top: 2em;
+        margin-left:4.5em ;
+        float:left;
+        position: relative;
+    }
+</style>
+<body class="homepage">
+<!-- Header -->
+<div id="header">
+    <!-- Inner -->
+    <div class="inner" style="padding-top:0">
+        <!-- Nav -->
+        <header>
+            <h1><a href="#" id="logo">CURTAIN</a></h1>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">首页</a></li>
+                <li><a href="person.html">个人</a></li>
+                <li><a href="shopping_cart.html">购物车</a></li>
+                <li><a href="shopping.html">全部宝贝</a></li>
+                <li><a href="register.html">登录/注册</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- Banner -->
+<div id="banner">
+    <h2>ALL <strong>goods</strong> in our store.</h2>
+</div>
+<!-- Carousel -->
+<div class="carousel" style="height:55em" >
+    <div class="reel" style="padding-left: 0px;" >
+        <ul class="select">
+            <li class="select-list">
+                <dl id="select1">
+                    <dt>风格：</dt>
+                    <dd class="select-all selected" id="show1"><a>全部</a></dd>
+                    <dd><a>欧式</a></dd>
+                    <dd><a>田园</a></dd>
+                    <dd><a>时尚温馨</a></dd>
+                    <dd><a>地中海</a></dd>
+                    <dd><a>儿童</a></dd>
+                </dl>
+            </li>
+            <li class="select-list">
+                <dl id="select2">
+                    <dt>颜色：</dt>
+                    <dd class="select-all selected"  id="show2"><a>全部</a></dd>
+                    <dd > <a >暗色</a></dd>
+                    <dd ><a >亮色</a></dd>
+                </dl>
+            </li>
+            <li class="select-list">
+                <dl id="select3">
+                    <dt>价格：</dt>
+                    <dd class="select-all selected" id="show" ><a>全部</a></dd>
+                    <dd id="hide1" ><a ><1000元</a></dd>
+                    <dd id="hide2"><a >1000-2000元</a></dd>
+                    <dd id="hide3"><a >2000-3000元</a></dd>
+                    <dd id="hide4"><a>>3000元</a></dd>
+                </dl>
+            </li>
+            <li class="select-result">
+                <dl>
+                    <dt>已选条件：</dt>
+                    <dd class="select-no">暂时没有选择过滤条件</dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <div class="shopping_column" id="shopping_columns">
+
+    </div>
+    <footer>
+        <button style="
+                top: 1100px;
+                left: 560px;
+        ">下一页</button>
+    </footer>
+    </div>
+
+
+<!-- Features -->
+<div class="wrapper style1">
+    <section id="features" class="container special">
+        <header>
+            <h2>Welcome to contact us!</h2>
+            <span class="byline"></span>
+        </header>
+        <div class="row">
+            <article class="4u special">
+                <img src="images/pic07.jpg" alt="" />
+                <header>
+                    <h3>店铺地址</h3>
+                </header>
+                <p style=" padding-left: 2em;">
+                    天津市河北区海河东路大悲院前
+                    <br>
+                    天津窗帘城B1-29-33#
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic08.jpg" alt="" />
+                <header>
+                    <h3>转账方式</h3>
+                </header>
+                <p style=" padding-left: 0.9em;">
+                    交 通 银 行：6222601210001594698
+                    <br>
+                    农 业 银 行：6228480020077642013
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic09.jpg" alt="" />
+                <header>
+                    <h3>联系方式</h3>
+                </header>
+                <p style="    padding-left:4em;">
+                    电 话：022-26230188
+                    <br>
+                    手 机：13802052187
+                </p>
+            </article>
+        </div>
+    </section>
+</div>
+</body>
+<script>
+    $(function () {
+        $.get(
+            'users',
+            function (data)
+            {
+                var shopping_columns=JSON.parse(data);
+                var a = $("<a href=\"thing.html\">");
+                a.appendTo($("#shopping_columns"));
+                for (var i = 0; i < 7; i++)
+                {
+                    var div = $("<div class=\"shangpin1\" data-from=\"best_of_behance\"></div>");
+                    div.appendTo(a);
+                    var img= $("<img class=\"shopping_pictures\" src=\""+ shopping_columns[i].picture_url +"\" />");
+                    img.appendTo(div);
+                    var p= $("<p style=\"margin-bottom: 0;margin-left: 0.5em\">" + shopping_columns[i].user_name +" </p>");
+                    p.appendTo(div);
+                    var span=$("<span class=\"shopping_money\" style=\"margin-left: 0.5em\">" + shopping_columns[i].price+
+                        "</span>");
+                    span.appendTo(div);
+                }
+            });
+    })
+</script>
+</html>

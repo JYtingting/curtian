@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>个人中心</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <script src="javascripts/jquery.js"></script>
+</head>
+
+<body class="homepage">
+
+<div id="header">
+
+    <div class="inner" style="padding-top:0">
+
+        <header>
+            <h1><a href="#" id="logo">CURTAIN</a></h1>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">首页</a></li>
+                <li><a href="person.html">个人</a></li>
+                <li><a href="shopping_cart.html">购物车</a></li>
+                <li><a href="shopping.html">全部宝贝</a></li>
+                <li><a href="register.html">登录/注册</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div id="banner">
+    <h2>Personal Center</h2>
+</div>
+
+<div class="carousel" style="  height: 800px;" >
+    <form enctype="multipart/form-data" style="
+    position:relative;float:left
+" >
+        <div>
+            <label for="userName">商品名称: </label>
+            <input type="text" id="userName" name="user_name">
+            </br>
+            <label for="price">商品价格: </label>
+            <input type="text" id="price" name="price" style=" margin-top: 20px;">
+            </br>
+            <label for="file">上传宝贝</label>
+            <input type="file" name="file" id="file" style=" margin-top: 20px;" />
+        </div>
+        <div style=" margin-top: 20px;">
+            <input type="button" id="register" style="display: inline-block;
+    background: -webkit-linear-gradient(right,#314775,#26a0da);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.65em 2em 0.65em 2em;
+    cursor: pointer;
+    outline: 0;
+    border-radius: 12px;
+    opacity: 0.8;
+    font-size: 10.6pt;
+    border: 0;
+ " value="上传">
+        </div>
+        <div id="info"> </div>
+    </form>
+    <a  onclick="toggle('user_list')">
+        <button id="users" style="position:absolute;margin-top: 50px;left: 0px;top: 260px;">显示最近上传宝贝</button>
+    </a>
+    <div id="user_list" style="position:absolute;margin-top: 60px;left: 0px;top: 300px;height:480px;overflow:scroll">
+    </div>
+    <div class="touxiang" style="float:right;margin-right: 200px;">
+        <div class="touxiangs"  align="center">
+            <img src="images/pig.jpg" style="width:200px;height: 200px;">
+        </div>
+        <div >
+            姓名:<span>猪猪</span><br/><br>
+            性别:<span id="修改性别" ondblclick="edit(this)">男</span><br/><br>
+            生日:<span id="修改生日" ondblclick="edit(this)">1997.11.30</span><br/><br>
+            邮箱:<span id="修改邮箱" ondblclick="edit(this)">1037027555@qq.com</span><br/><br>
+            联系方式:<span id="修改联系方式" ondblclick="edit(this)">15157142843</span><br/><br>
+            店铺地址:<span id="修改地址" ondblclick="edit(this)" >浙江省杭州市余杭区窗帘有限公司</span><br/>
+        </div>
+        <div>
+            <footer  style="margin-left: 0">
+                <a  href="register.html" class="button">退出登录</a>
+            </footer>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="wrapper style1">
+    <section id="features" class="container special">
+        <header>
+            <h2>Welcome to contact us!</h2>
+            <span class="byline"></span>
+
+        </header>
+        <div class="row">
+            <article class="4u special">
+                <img src="images/pic07.jpg" alt="" />
+                <header>
+                    <h3>店铺地址</h3>
+                </header>
+                <p style=" padding-left: 2em;">
+                    天津市河北区海河东路大悲院前
+                    <br>
+                    天津窗帘城B1-29-33#
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic08.jpg" alt="" />
+                <header>
+                    <h3>转账方式</h3>
+                </header>
+                <p style=" padding-left: 0.9em;">
+                    交 通 银 行：6222601210001594698
+                    <br>
+                    农 业 银 行：6228480020077642013
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic09.jpg" alt="" />
+                <header>
+                    <h3>联系方式</h3>
+                </header>
+                <p style="    padding-left:4em;">
+                    电 话：022-26230188
+                    <br>
+                    手 机：13802052187
+                </p>
+            </article>
+        </div>
+    </section>
+</div>
+
+</body>
+<script>
+    $(function () {
+//上传新宝贝
+        $('#register').click(function() {
+//使用FormData用来上传文件及其他信息
+            var formData = new FormData();
+            formData.append('username',$('#userName').val());
+            formData.append('price',$('#price').val());
+            formData.append('picture',$('#file')[0].files[0]);
+            $.ajax({
+                url: "buyer",
+                type: "POST",
+                data: formData,
+                processData: false,  // 不处理数据
+                contentType: false,   // 不设置内容类型
+                success:function (data) {
+//data代表的是register.js里的res.send函数参数的字符串内容
+                    $('#info').html('<b>这是第'+data.toString()+'个上传成功的宝贝</b>')
+                }
+            });
+        });
+//查询所有用户
+        $('#users').click(function() {
+            $("#user_list").empty();
+            $.get(
+                'users', //对应node端routes\users.js处理逻辑
+                '', // 可选
+                function (data)
+                {
+//将服务器端的JSON字符串转化成JSON对象
+                    var userList=JSON.parse(data);
+//动态创建table元素
+                    var table = $("<table>");
+                    table.appendTo($("#user_list"));
+                    //遍历所有用户信息
+                    for (var i = 0; i < userList.length; i++) {
+                        //增加表格一行
+                        var tr = $("<tr></tr>");
+                        //将行添加到表格中
+                        tr.appendTo(table);
+                        //新建一个表格单元格，显示用户名
+                        td = $("<td> <img height='150' width='150' src=" + userList[i].picture_url + "></td>");
+                        td.appendTo(tr);
+                        var td = $("<td>" + userList[i].user_name + "</td>");
+                        //将单元格信息添加到行中
+                        td.appendTo(tr);
+                        td = $("<td>" + userList[i].price + "</td>");
+                        //将单元格信息添加到行中
+                        td.appendTo(tr);
+                        //将另外一个单元格信息添加到行中
+                    }
+                    //写入表格结束标签
+                    $("#user_list").append("</table>");
+                });
+        });
+    })
+</script>
+
+<script>
+    function toggle(targetid) {
+        target=document.getElementById(targetid)
+        if(target){
+            if (target.style.display==="block")
+            {
+                target.style.display="none";
+            }
+            else
+            {
+                target.style.display="block";
+            }
+        }
+    }
+</script>
+</html>

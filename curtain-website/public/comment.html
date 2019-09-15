@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>评论</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <script type="text/javascript" src="js/script.js"></script>
+    <style type="text/css">
+        * { margin: 0; padding: 0; border: none;}
+        .clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden}
+        .clearfix { *height:1%;}
+        #list { margin: 0 auto; text-align: left; width: 540px;}
+        .box { border-top: 1px solid #eee; position: relative;  width: 540px; padding: 20px 0}
+        .head { float: left; width: 60px; height: 60px; margin-right: 10px;}
+        .content { float: left; width: 440px;}
+        .main { margin-bottom: 10px;}
+        .txt { margin-bottom: 10px;}
+        .user { color: #6d8e95; }
+        .pic { margin-right: 5px; width: 200px; border: 1px solid #eee;}
+        .comment-box { padding: 10px 0; border-top: 1px solid #eee;}
+        .comment-box:hover { background: rgb(247, 247, 247);}
+        .comment-box .myhead { float: left; width: 30px; height: 30px; margin-right: 10px;}
+        .comment-box .comment-content { float: left; width: 400px; }
+        .text-box .comment { border: 1px solid #eee; display: block; height: 15px; width: 428px; padding: 5px; resize: none; color: #ccc}
+        .text-box .btn { font-size: 12px; font-weight: bold;float:right; display: none; width: 100px; height: 30px; border: 1px solid #0C528D;
+            color: #fff; background: #4679AC;position:initial}
+        .text-box .word{ display: none; float: right; margin: 7px 10px 0 0; color: #666;}
+        .text-box-on .comment{ height: 50px; color: #333;}
+        .text-box-on .btn{ display: inline;}
+        .text-box-on .word{ display: inline;}
+
+    </style>
+    <script src="javascripts/jquery.js"></script>
+</head>
+<body class="homepage">
+
+<div id="header">
+
+    <div class="inner" style="padding-top:0">
+
+        <header>
+            <h1><a href="#" id="logo">CURTAIN</a></h1>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">首页</a></li>
+                <li><a href="person.html">个人</a></li>
+                <li><a href="shopping_cart.html">购物车</a></li>
+                <li><a href="shopping.html">全部宝贝</a></li>
+                <li><a href="register.html">登录/注册</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div id="banner">
+    <h2>Commodity review area</h2>
+</div>
+
+<div class="carousel"  >
+    <div id="list">
+        <div class="box clearfix">
+            <img class="head" src="images/pig.jpg" alt=""/>
+            <div class="content">
+                <div class="main">
+                    <p class="txt">
+                        <span class="user">猪猪：</span>我觉得这个窗帘还可以，粉粉的是我喜欢的颜色。
+                    </p>
+                    <img class="pic" src="images/img1.jpg" alt=""/>
+                </div>
+
+                <div class="comment-list">
+                    <div class="comment-box clearfix" user="self">
+                        <img class="myhead" src="images/my.jpg"/>
+                        <table class="comment-content">
+                            <p class="comment-text"><span class="user">我：</span>我也觉得你喜欢粉色 。</p>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="comment_list" class="comment_list" >
+                </div>
+
+                <div class="text-box">
+                    <input class="comment" type="text" id="comments" name="comment" autocomplete="off">
+                    <button class="btn " id="btn">回 复</button>
+                    <span class="word"><span class="length">0</span>/300</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="
+    margin-left: 440px;
+">
+        <a  href="thing.html" class="button" style="margin-left:4em">返回</a>
+    </footer>
+</div>
+
+
+
+<div class="wrapper style1">
+    <section id="features" class="container special">
+        <header>
+            <h2>Welcome to contact us!</h2>
+            <span class="byline"></span>
+        </header>
+        <div class="row">
+            <article class="4u special">
+                <img src="images/pic07.jpg" alt="" />
+                <header>
+                    <h3>店铺地址</h3>
+                </header>
+                <p style=" padding-left: 2em;">
+                    天津市河北区海河东路大悲院前
+                    <br>
+                    天津窗帘城B1-29-33#
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic08.jpg" alt="" />
+                <header>
+                    <h3>转账方式</h3>
+                </header>
+                <p style=" padding-left: 0.9em;">
+                    交 通 银 行：6222601210001594698
+                    <br>
+                    农 业 银 行：6228480020077642013
+                </p>
+            </article>
+            <article class="4u special">
+                <img src="images/pic09.jpg" alt="" />
+                <header>
+                    <h3>联系方式</h3>
+                </header>
+                <p style="    padding-left:4em;">
+                    电 话：022-26230188
+                    <br>
+                    手 机：13802052187
+                </p>
+            </article>
+        </div>
+    </section>
+</div>
+
+</body>
+<script>
+    $(function ()
+    {
+        $('#btn').click(function() {
+//使用FormData用来上传文件及其他信息
+            var formData = new FormData();
+            formData.append('comment',$('#comments').val());
+            $.ajax({
+                url: "comment",
+                type: "POST",
+                data: formData,
+                processData: false,  // 不处理数据
+                contentType: false,   // 不设置内容类型
+                success:function (data)
+                {
+                }
+            });
+        });
+    })
+</script>
+<script>
+    $(function () {
+        $.get(
+            'pinglun',
+            function (data)
+            {
+                var comment_list=JSON.parse(data);
+                var div = $("<div class=\"comment-box clearfix\" user=\"self\" >");
+                div.appendTo($("#comment_list"));
+                for (var i = 0; i <comment_list.length; i++)
+                {
+                    var img= $("<img class=\"myhead\" src=\"images/my.jpg\"/>");
+                    img.appendTo(div);
+
+                    var table= $("<table class=\"comment-content\"></table>");
+                    table.appendTo(div);
+
+                    var p=$("<p class=\"comment-text\"class=\"user\"> <span class=\"user\">我：</span>" + comment_list[i].comment+
+                        "</p>");
+                    p.appendTo(table);
+                }
+                $("#comment_list").append("</div>");
+            });
+    })
+</script>
+
+</html>
